@@ -1,0 +1,12 @@
+.HomeContainer{
+    margin: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.Fitem{
+    margin: 30px; 
+}
