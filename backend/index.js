@@ -3,15 +3,17 @@ const dotenv = require('dotenv')
 const cors = require('cors')
 const connectToMongoose = require("./db")
 
-dotenv.config()
+
 const app = express()
+app.use(express.json()) //IMPORTANT FOR LOGIN AND RESISTER
+
+
+dotenv.config()
 const port = process.env.PORT
 connectToMongoose(process.env.MONGOOSE_URL)
 
 
-app.get('/', (req, res) => {
-  res.send('Hello World!')
-})
+app.use('/api/auth',require('./routes/auth'))
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
