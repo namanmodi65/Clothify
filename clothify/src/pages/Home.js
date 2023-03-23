@@ -1,12 +1,12 @@
 import React from 'react'
-import Carousel from '../component/carousel/Carousel'
+// import Carousel from '../component/carousel/Carousel'
 import ItemCrad from '../component/ItemCard/ItemCrad'
 import './Home.css'
 
 function Home() {
   return (
     <div>
-      <Carousel/>
+      {/* <Carousel/> */}
     <div className='HomeContainer'>
       <div className='Fitem'>
       <ItemCrad/>

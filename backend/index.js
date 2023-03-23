@@ -3,9 +3,9 @@ const dotenv = require('dotenv')
 const cors = require('cors')
 const connectToMongoose = require("./db")
 
-
 const app = express()
 app.use(express.json()) //IMPORTANT FOR LOGIN AND RESISTER
+app.use(cors())
 
 
 dotenv.config()

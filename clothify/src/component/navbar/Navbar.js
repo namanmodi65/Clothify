@@ -2,6 +2,8 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import {AiFillHome} from 'react-icons/ai'
 import {HiShoppingCart} from 'react-icons/hi'
+import {FiLogIn} from 'react-icons/fi'
+import {BiNotepad} from 'react-icons/bi'
 import logo from '../Clothify.png';
 import './Navbar.css'
 
@@ -27,8 +29,18 @@ function Navbar() {
                             </li>
                         
                             <li className="nav-item">
-                                <Link className="nav-link active" to="/card" tabindex="-1" aria-disabled="true">
+                                <Link className="nav-link active" to="/card" tabIndex="-1" aria-disabled="true">
                                 <HiShoppingCart /> Your_card
+                                    </Link>
+                            </li>
+                            <li className="nav-item">
+                                <Link className="nav-link active" to="/login" tabIndex="-1" aria-disabled="true">
+                                <FiLogIn /> Login
+                                    </Link>
+                            </li>
+                            <li className="nav-item">
+                                <Link className="nav-link active" to="/signup" tabIndex="-1" aria-disabled="true">
+                                <BiNotepad /> Signup
                                     </Link>
                             </li>
                         </ul>
