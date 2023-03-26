@@ -1,8 +1,10 @@
 // import axios from 'axios'
 import { useState } from 'react'
 import React  from 'react'
+import { useNavigate } from 'react-router-dom'
 
 function Signup() {
+    const nevigate = useNavigate()
     const [credentials, setCredentials] = useState({ name: "", email: "", password: "" })
 
 
@@ -19,6 +21,7 @@ function Signup() {
             });
             const json = await response.json()
             console.log(json)
+            nevigate('/login')
 
           } catch (error) {
             console.log(error)
