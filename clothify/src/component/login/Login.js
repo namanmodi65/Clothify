@@ -1,8 +1,11 @@
 import axios from 'axios'
 import React,{useRef} from 'react'
+import { useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { Context } from '../../context/Context'
 
 function Login() {
+  const { dispatch, user } = useContext(Context)
   const nevigate = useNavigate()
 
   const emailRef = useRef()
@@ -10,14 +13,18 @@ function Login() {
 
   const handleSubmit= async(e)=>{
     e.preventDefault()
+    dispatch({ type: "LOGIN_START" })
     try {
       const res = await axios.post('http://localhost:3001/api/auth/login', {
         email: emailRef.current.value,
         password: passwordRef.current.value,
       })
-      console.log(res)
-      nevigate('/')
+      dispatch({ type: "LOGIN_SUCCESS", payload: res.data })
+      {!user && alert("Wrong credentials")}
+      console.log(user)
+      {user && nevigate('/')}
     } catch (error) {
+      dispatch({ type: "LOGIN_FAILURE" })
       console.log(error)
     }
   }

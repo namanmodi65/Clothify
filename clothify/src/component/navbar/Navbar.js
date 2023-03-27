@@ -1,13 +1,19 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import {AiFillHome} from 'react-icons/ai'
 import {HiShoppingCart} from 'react-icons/hi'
 import {FiLogIn} from 'react-icons/fi'
-import {BiNotepad} from 'react-icons/bi'
+import {BiNotepad,BiLogOut} from 'react-icons/bi'
 import logo from '../Clothify.png';
 import './Navbar.css'
+import { Context } from '../../context/Context'
 
 function Navbar() {
+    const {user,dispatch} = useContext(Context)
+
+    const handleLogout=()=>{
+        dispatch({type:"LOGOUT"})
+      }
     return (
         <div>
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -34,14 +40,16 @@ function Navbar() {
                                     </Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link active" to="/login" tabIndex="-1" aria-disabled="true">
+                                {!user ?<Link className="nav-link active" to="/login" tabIndex="-1" aria-disabled="true">
                                 <FiLogIn /> Login
                                     </Link>
+                                    :<Link className="nav-link active" onClick={handleLogout} > <BiLogOut/> Logout</Link>
+                                    }
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link active" to="/signup" tabIndex="-1" aria-disabled="true">
+                                {!user && <Link className="nav-link active" to="/signup" tabIndex="-1" aria-disabled="true">
                                 <BiNotepad /> Signup
-                                    </Link>
+                                    </Link>}
                             </li>
                         </ul>
                         <form className="d-flex">
