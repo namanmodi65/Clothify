@@ -34,11 +34,11 @@ function Navbar() {
                                     <AiFillHome/> Home</Link>
                             </li>
                         
-                            <li className="nav-item">
+                            {user && <li className="nav-item">
                                 <Link className="nav-link active" to="/card" tabIndex="-1" aria-disabled="true">
                                 <HiShoppingCart /> Your_card
                                     </Link>
-                            </li>
+                            </li>}
                             <li className="nav-item">
                                 {!user ?<Link className="nav-link active" to="/login" tabIndex="-1" aria-disabled="true">
                                 <FiLogIn /> Login
