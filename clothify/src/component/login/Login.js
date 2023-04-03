@@ -20,7 +20,7 @@ function Login() {
         password: passwordRef.current.value,
       })
       dispatch({ type: "LOGIN_SUCCESS", payload: res.data })
-      {!user && alert("Wrong credentials")}
+      {res.data =='Wrong credentials' && alert("Wrong credentials")}
       console.log(user)
       {user && nevigate('/')}
     } catch (error) {

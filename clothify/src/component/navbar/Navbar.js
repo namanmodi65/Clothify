@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext,useState } from 'react'
 import { Link } from 'react-router-dom'
 import {AiFillHome} from 'react-icons/ai'
 import {HiShoppingCart} from 'react-icons/hi'
@@ -9,8 +9,11 @@ import './Navbar.css'
 import { Context } from '../../context/Context'
 
 function Navbar() {
+    const [Admin, setAdmin] = useState(false)
     const {user,dispatch} = useContext(Context)
-
+    // if(user.user.UserType == 'Admin'){
+    //     setAdmin(true)
+    // }
     const handleLogout=()=>{
         dispatch({type:"LOGOUT"})
       }
@@ -39,6 +42,8 @@ function Navbar() {
                                 <HiShoppingCart /> Your_card
                                     </Link>
                             </li>}
+
+
                             <li className="nav-item">
                                 {!user ?<Link className="nav-link active" to="/login" tabIndex="-1" aria-disabled="true">
                                 <FiLogIn /> Login

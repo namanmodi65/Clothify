@@ -22,9 +22,9 @@ router.post('/resister',async(req,res)=>{
         const newUser = new User({
             username:req.body.username,
             email:req.body.email,
+            UserType:req.body.UserType,
             password:secretPass
         })
-
         const data ={
             newUser:{
               id : newUser.id
@@ -53,8 +53,14 @@ router.post('/login',async(req,res)=>{
               id : user.id
             }
           }
+        const check ={
+            user:{
+              type : user.UserType
+            }
+          }
+
           const authToken = jwt.sign(data,JWT_SECRET)
-        res.status(200).json({authToken})
+        res.status(200).json({authToken,check})
 
     } catch (error) {
         // console.error(error)
