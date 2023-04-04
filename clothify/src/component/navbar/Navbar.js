@@ -9,7 +9,7 @@ import './Navbar.css'
 import { Context } from '../../context/Context'
 
 function Navbar() {
-    const [Admin, setAdmin] = useState(false)
+    // const [Admin, setAdmin] = useState(false)
     const {user,dispatch} = useContext(Context)
     // if(user.user.UserType == 'Admin'){
     //     setAdmin(true)

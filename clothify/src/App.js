@@ -9,6 +9,7 @@ import {
 } from "react-router-dom";
 import Signup from './component/signup/Signup';
 import Login from './component/login/Login';
+import AddItem from './pages/AddItem';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
       <Route path='/card' element={<Crad/>} />
       <Route path='/login' element={<Login/>} />
       <Route path='/signup' element={<Signup/>} />
+      <Route path='/addItem' element={<AddItem/>} />
       </Routes>
        </BrowserRouter>
     </div>
