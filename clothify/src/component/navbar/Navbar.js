@@ -4,6 +4,7 @@ import {AiFillHome} from 'react-icons/ai'
 import {HiShoppingCart} from 'react-icons/hi'
 import {FiLogIn} from 'react-icons/fi'
 import {BiNotepad,BiLogOut} from 'react-icons/bi'
+import {AiFillFileAdd} from 'react-icons/ai'
 import logo from '../Clothify.png';
 import './Navbar.css'
 import { Context } from '../../context/Context'
@@ -40,6 +41,13 @@ function Navbar() {
                             {user && <li className="nav-item">
                                 <Link className="nav-link active" to="/card" tabIndex="-1" aria-disabled="true">
                                 <HiShoppingCart /> Your_card
+                                    </Link>
+                            </li>}
+
+
+                            {user && <li className="nav-item">
+                                <Link className="nav-link active" to="/addItem" tabIndex="-1" aria-disabled="true">
+                                <AiFillFileAdd /> Add_items
                                     </Link>
                             </li>}
 

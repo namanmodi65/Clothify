@@ -20,7 +20,7 @@ input[type="text"], input[type="number"], input[type="file"] {
 }
 
 input[type="submit"] {
-    background-color: #4CAF50;
+    background-color: #007bff;
     color: white;
     font-size: 18px;
     padding: 10px 20px;
