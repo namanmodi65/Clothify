@@ -1,11 +1,24 @@
-import React, { useRef } from 'react'
+import React, { useRef ,useState} from 'react'
 import axios from 'axios'
 import './AddItem.css'
 function AddItem() {
+	const [selectImage, setSelectImage] = useState("")
+	const [imageUrl, setImageUrl] = useState("")
 
 	const itemNameRef = useRef()
 	const itemPriceRef = useRef()
 	const itemCategoriesRef = useRef()
+
+	const handleUpload = ()=>{
+		// console.log(files[0])
+		const formData = new FormData
+		formData.append('file',selectImage)
+		formData.append('upload_preset','qskeskyv')
+
+		axios.post('https://api.cloudinary.com/v1_1/dquivuztl/image/upload',formData).then((response)=>{
+			setImageUrl(response.data.secure_url)
+		})
+	}
 
 	const handleSubmit= async(e)=>{
 		e.preventDefault()
@@ -13,6 +26,7 @@ function AddItem() {
 		  const res = await axios.post('http://localhost:3001/api/product/', {
 			name: itemNameRef.current.value,
 			price: itemPriceRef.current.value,
+			// photo: imageUrl,
 			categories:itemCategoriesRef.current.value
 		  })
 
@@ -37,7 +51,8 @@ function AddItem() {
 		<input type="text" id="item_price" name="item_price" min="0" step="0.01" ref={itemCategoriesRef} required/>
 
 		<label for="item_image">Item Image:</label>
-		<input type="file" id="item_image" name="item_image" accept="image/*" />
+		<input type="file" id="item_image" name="item_image" accept="image/*" onChange={(e)=>{setSelectImage(e.target.files[0])}} />
+		<button type="button" className="btn btn-link" onClick={handleUpload}>Upload image </button>
 		<img id="image-preview"/>
 
 		<input type="submit" value="Add Item"/>
