@@ -8,5 +8,7 @@
 }
 
 .Fitem{
+    /* display: flex; */
     margin: 30px; 
+    /* flex-wrap: wrap; */
 }

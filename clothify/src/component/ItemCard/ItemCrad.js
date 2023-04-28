@@ -1,14 +1,15 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import './ItemCard.css'
-function ItemCrad() {
+function ItemCrad({ product }) {
     return (
         <div>
             <div className="card ItemCard"  >
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS49uF8mqxrF0oXprwNSinCp6PblBw-MFAqrQ&usqp=CAU" className="card-img-top" alt="..." />
+                <img src={!product.photo?'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTKFbJGEuDCSj0xU5t5HoU6G6WqRJ44WTNOA&usqp=CAU':product.photo} className="card-img-top" alt="..." />
                 <div className="card-body">
-                    <h5 className="card-title">Card title</h5>
-                    <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <h3 className="card-title">{product.name}</h3>
+                    <h5 className="card-text"> ₹{product.price}</h5>
+                    <p className="card-text"> categories:-{product.categories}</p>
                     <Link href="#" className="btn btn-primary">Add to Card</Link>
                     <div > Qantity
                         <select >
