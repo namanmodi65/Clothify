@@ -10,11 +10,10 @@ import './Navbar.css'
 import { Context } from '../../context/Context'
 
 function Navbar() {
-    // const [Admin, setAdmin] = useState(false)
+    const [Admin, setAdmin] = useState('')
     const {user,dispatch} = useContext(Context)
-    // if(user.user.UserType == 'Admin'){
-    //     setAdmin(true)
-    // }
+    // setAdmin(user.check.user.type)
+    
     const handleLogout=()=>{
         dispatch({type:"LOGOUT"})
       }
@@ -40,7 +39,7 @@ function Navbar() {
                         
                             {user && <li className="nav-item">
                                 <Link className="nav-link active" to="/card" tabIndex="-1" aria-disabled="true">
-                                <HiShoppingCart /> Your_card
+                                <HiShoppingCart /> My_card
                                     </Link>
                             </li>}
 
