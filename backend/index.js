@@ -21,6 +21,7 @@ connectToMongoose(process.env.MONGOOSE_URL)
 
 app.use('/api/auth',require('./routes/auth'))
 app.use('/api/product',require('./routes/product'))
+app.use('/api/orders',require('./routes/orders'))
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)

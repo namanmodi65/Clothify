@@ -19,8 +19,11 @@ function Login() {
         email: emailRef.current.value,
         password: passwordRef.current.value,
       })
+      res.data !== 'Wrong credentials' && localStorage.setItem('userEmail',emailRef.current.value)
+      // console.log('Hello')
+      // console.log(res.data)
       dispatch({ type: "LOGIN_SUCCESS", payload: res.data })
-      {res.data =='Wrong credentials' && alert("Wrong credentials")}
+      {res.data ==='Wrong credentials' && alert("Wrong credentials")}
       console.log(user)
       {user && nevigate('/')}
     } catch (error) {

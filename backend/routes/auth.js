@@ -56,11 +56,12 @@ router.post('/login',async(req,res)=>{
         const check ={
             user:{
               type : user.UserType
+              ,email:user.email
             }
           }
 
           const authToken = jwt.sign(data,JWT_SECRET)
-        res.status(200).json({authToken,check})
+        res.status(200).json({authToken,check,})
 
     } catch (error) {
         // console.error(error)

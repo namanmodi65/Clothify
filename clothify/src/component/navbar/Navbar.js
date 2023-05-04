@@ -16,6 +16,7 @@ function Navbar() {
     
     const handleLogout=()=>{
         dispatch({type:"LOGOUT"})
+        localStorage.removeItem('userEmail')
       }
     return (
         <div>

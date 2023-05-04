@@ -2,9 +2,11 @@ import React,{useState} from 'react'
 import {useCard,useCardDispatch} from '../ContextReducer'
 import { Link } from 'react-router-dom'
 import './ItemCard.css'
+
 function ItemCrad({ product }) {
     let dispatch = useCardDispatch()
     let data = useCard()
+
     // let items = product.p
     const [qyt, setQyt] = useState(1)
     const [size, setSize] = useState()
@@ -16,6 +18,8 @@ function ItemCrad({ product }) {
         // e.preventDefault()
         // console.log('AddToCard Clicked')
     }
+
+    
 
     return (
         <div>

@@ -9,6 +9,9 @@ const reducer =(state,action)=>{
         return[
             ...state,{id:action.id,name:action.name,price:action.price,qyt:action.qyt}
         ]
+        case "DROP":
+            let emptyArr = []
+            return emptyArr
         default:
             console.log('Reducer error')
             
