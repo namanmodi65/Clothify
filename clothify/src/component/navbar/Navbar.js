@@ -5,6 +5,7 @@ import {HiShoppingCart} from 'react-icons/hi'
 import {FiLogIn} from 'react-icons/fi'
 import {BiNotepad,BiLogOut} from 'react-icons/bi'
 import {AiFillFileAdd} from 'react-icons/ai'
+import {BsFillBagCheckFill} from 'react-icons/bs'
 import logo from '../Clothify.png';
 import './Navbar.css'
 import { Context } from '../../context/Context'
@@ -41,6 +42,12 @@ function Navbar() {
                             {user && <li className="nav-item">
                                 <Link className="nav-link active" to="/card" tabIndex="-1" aria-disabled="true">
                                 <HiShoppingCart /> My_card
+                                    </Link>
+                            </li>}
+
+                            {user && <li className="nav-item">
+                                <Link className="nav-link active" to="/myorder" tabIndex="-1" aria-disabled="true">
+                                <BsFillBagCheckFill /> My_order
                                     </Link>
                             </li>}
 

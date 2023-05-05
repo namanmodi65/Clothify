@@ -10,6 +10,7 @@ import {
 import Signup from './component/signup/Signup';
 import Login from './component/login/Login';
 import AddItem from './pages/AddItem';
+import MyOrder from './pages/MyOrder';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
       <Routes>
       <Route path='/' element={<Home/>} />
       <Route path='/card' element={<Crad/>} />
+      <Route path='/myorder' element={<MyOrder/>} />
       <Route path='/login' element={<Login/>} />
       <Route path='/signup' element={<Signup/>} />
       <Route path='/addItem' element={<AddItem/>} />
