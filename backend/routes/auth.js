@@ -48,6 +48,7 @@ router.post('/login',async(req,res)=>{
         const validated = await bcrypt.compare(req.body.password,user.password)
         !validated && res.status(200).json("Wrong credentials")
 
+        console.log(user.UserType)
         const data ={
             user:{
               id : user.id
@@ -61,7 +62,8 @@ router.post('/login',async(req,res)=>{
           }
 
           const authToken = jwt.sign(data,JWT_SECRET)
-        res.status(200).json({authToken,check,})
+          const type = user.UserType
+        res.status(200).json({authToken,type})
 
     } catch (error) {
         // console.error(error)

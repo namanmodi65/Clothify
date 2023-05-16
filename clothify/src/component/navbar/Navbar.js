@@ -1,4 +1,4 @@
-import React, { useContext,useState } from 'react'
+import React, { useContext,useState,useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import {AiFillHome} from 'react-icons/ai'
 import {HiShoppingCart} from 'react-icons/hi'
@@ -11,9 +11,16 @@ import './Navbar.css'
 import { Context } from '../../context/Context'
 
 function Navbar() {
-    const [Admin, setAdmin] = useState('')
-    const {user,dispatch} = useContext(Context)
-    // setAdmin(user.check.user.type)
+    const {user,dispatch,userType} = useContext(Context)
+    const [Admin, setAdmin] = useState(userType||false);
+    
+    
+    useEffect(() => {
+        if (userType === 'Admin') {
+          setAdmin(true);
+        }
+      }, [userType]);
+
     
     const handleLogout=()=>{
         dispatch({type:"LOGOUT"})
@@ -52,7 +59,7 @@ function Navbar() {
                             </li>}
 
 
-                            {user && <li className="nav-item">
+                            {user && Admin && <li className="nav-item">
                                 <Link className="nav-link active" to="/addItem" tabIndex="-1" aria-disabled="true">
                                 <AiFillFileAdd /> Add_items
                                     </Link>

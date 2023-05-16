@@ -8,6 +8,7 @@ function Signup() {
     const [credentials, setCredentials] = useState({ name: "", email: "", password: "" })
     const [UserType, setUserType] = useState("")
     const [SecretKey, setSecretKey] = useState("")
+    // SecretKey = 'Clothify'
 
 
     const handleSubmit= async(e)=>{
